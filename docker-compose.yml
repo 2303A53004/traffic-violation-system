@@ -1,0 +1,27 @@
+services:
+  mongo:
+    image: mongo:7
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build: ./backend
+    environment:
+      PORT: 5000
+      MONGO_URI: mongodb://mongo:27017/trafficdb
+      JWT_SECRET: change_this_to_a_long_random_string
+    depends_on:
+      - mongo
+    volumes:
+      - uploads-data:/app/uploads
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:
+  uploads-data:
