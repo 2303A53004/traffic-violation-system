@@ -1,0 +1,6 @@
+[33mc8cbc0c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdev[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/dev[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m feat: add Kubernetes manifests for mongo, backend and frontend
+[33m18915fd[m feat: add Dockerfiles and docker-compose setup
+[33mcaf5896[m chore: add k8s and compose placeholder files
+[33mdb7d801[m feat: React frontend with role-based screens and charts
+[33mc9d1d06[m feat: backend API with auth, violation workflow and reports
+[33mcbf14f1[m chore: add gitignore and readme

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 
 const links = {
@@ -14,16 +14,20 @@ export default function Navbar() {
   if (!user) return null;
   return (
     <nav className="navbar">
-      <b>Traffic Violation System</b>
+      <div className="brand">
+        <span className="brand-logo">&#128678;</span>
+        <span>Smart Traffic Violation System</span>
+      </div>
       <div className="links">
         {links[user.role].map(([to, label]) => (
-          <Link key={to} to={to}>{label}</Link>
+          <NavLink key={to} to={to} className={({ isActive }) => (isActive ? "active" : "")}>{label}</NavLink>
         ))}
       </div>
-      <span>
-        {user.name} ({user.role}){" "}
+      <div className="user-box">
+        <span>{user.name}</span>
+        <span className="role-tag">{user.role}</span>
         <button onClick={() => { logout(); nav("/login"); }}>Logout</button>
-      </span>
+      </div>
     </nav>
   );
 }
